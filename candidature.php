@@ -10,6 +10,7 @@ $reglement  = false;
 $erreurs   = [];
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,72 @@ $erreurs   = [];
     <div class="container">
         <h1>Formulaire de candidature</h1>
         <p class="subtitle">Club Informatique de l'école</p>
+    </div>
+
+    <div>
+
+        <form action="candidature.php" method="POST">
+ 
+            <!--Champ Prénom -->
+            <div class="champ">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom">
+            
+            </div>
+ 
+            <!--Champ Nom -->
+            <div class="champ">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom">
+            </div>
+ 
+            <!--Champ Email -->
+            <div class="champ">
+                <label for="email">Adresse email *</label>
+                <input type="email" id="email" name="email" placeholder="exemple@domaine.com">
+            </div>
+ 
+            <!--Champ Âge -->
+            <div class="champ">
+                <label for="age">Âge *</label>
+                <input type="number" id="age" name="age" placeholder="Entre 16 et 30" min="16" max="30">
+            </div>
+ 
+            <!--Champ Filière -->
+            <div class="champ">
+                <label for="filiere">Filière souhaitée *</label>
+                <select id="filiere" name="filiere">
+
+                    <option value="">-- Choisir --</option>
+                    <option value="Informatique">Informatique</option>
+                    <option value="Électronique">Électronique</option>
+                    <option value="Mécanique">Mécanique</option>
+                    <option value="Autre">Autre</option>
+
+                </select>
+            </div>
+ 
+            <!--Champ Motivation -->
+            <div class="champ">
+                <label for="motivation">Lettre de motivation * <small>(30 caractères minimum)</small></label>
+                <textarea id="motivation" name="motivation" rows="6" placeholder="Expliquez pourquoi vous souhaitez rejoindre le club..."></textarea>
+            </div>
+ 
+            <!--Champ Règlement-->
+            <div class="champ champ-checkbox">
+                <label>
+                    <input type="checkbox" name="reglement" value="1">
+                    J'ai lu et j'accepte le règlement du club.
+                </label>
+            </div>
+ 
+            <!--Bouton d'envoi -->
+            <div class="champ">
+                <button type="submit">Envoyer ma candidature</button>
+            </div>
+ 
+        </form>
+ 
     </div>
     
 </body>
