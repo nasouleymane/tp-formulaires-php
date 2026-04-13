@@ -36,6 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (strlen($motivation) < 30) {
         $erreurs[] = "La motivation doit contenir au moins 30 caractères.";
     }
+    // B.1 — Limite maximale de 300 caractères
+    if (strlen($motivation) > 300) {
+        $erreurs[] = "La motivation ne doit pas dépasser 300 caractères.";
+    }
     if (!$reglement) {
         $erreurs[] = "Vous devez accepter le règlement.";
     }
@@ -52,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        
+
         <h1>Formulaire de candidature</h1>
         <p class="subtitle">Club Informatique de l'école</p>
 
@@ -130,10 +134,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <!-- Champ Motivation -->
                 <div class="champ">
-                    <label for="motivation">Lettre de motivation * <small>(30 caractères minimum)</small></label>
+                    <label for="motivation">Lettre de motivation * <small>(30 caractères minimum, 300 maximum)</small></label>
                     <textarea id="motivation" name="motivation" rows="6"
                               placeholder="Expliquez pourquoi vous souhaitez rejoindre le club..."
                     ><?php echo $motivation; ?></textarea>
+                    <!--  Compteur calculé -->
+                    <small><?php echo strlen($motivation); ?> / 300 caractères</small>
                 </div>
 
                 <!-- Champ Règlement -->
